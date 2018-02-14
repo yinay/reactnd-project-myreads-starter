@@ -1,4 +1,7 @@
-import React , {Component}from 'react'
+import React , {Component}from 'react';
+import { Link } from 'react-router-dom';
+import HeaderTitle from './Header.js';
+
 
 class BookList extends Component {
     render () {
@@ -7,6 +10,8 @@ class BookList extends Component {
           this.props.books.filter(book => book.shelf === shelf)
       ));
       return (
+        <div className="list-books">
+           <HeaderTitle title='MyReads'/>
             <div className="list-books-content">
             {
               mybooks.map((booksShelf,i) => (
@@ -41,6 +46,11 @@ class BookList extends Component {
                 </div>
               ))
             }
+          </div>
+          <div className="open-search">
+              <Link to='/search'>Add a book</Link>
+              {/* <a onClick={() => this.setState({ showSearchPage: true })}></a> */}
+            </div>
           </div>
         )
     }
